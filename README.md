@@ -88,6 +88,8 @@ src/
 This project is optimized for deployment on **Vercel**.
 Since it is built with Vite, Vercel automatically detects the framework and configures the build settings out of the box.
 
+**Live Demo:** [anshuman-sahu.vercel.app](https://anshuman-sahu.vercel.app/)
+
 ## 📬 Contact
 
 For any queries, feedback, or collaboration:
