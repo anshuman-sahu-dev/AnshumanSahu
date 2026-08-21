@@ -85,12 +85,27 @@ src/
 
 ## 🌐 Deployment
 
-This project is optimized for deployment on **Vercel**. 
+This project is optimized for deployment on **Vercel**.
 Since it is built with Vite, Vercel automatically detects the framework and configures the build settings out of the box.
 
-## 📬 Author & Contact
+## 📬 Contact
 
-**Anshuman Sahu**  
-- **Role:** Full Stack / Frontend Developer & AI Enthusiast
+For any queries, feedback, or collaboration:
 
-*Feel free to reach out for collaborations, project inquiries, or job opportunities!*
+[![Email](https://img.shields.io/badge/Email-toanshumansahu@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:toanshumansahu@gmail.com) <br>
+[![Phone](https://img.shields.io/badge/Phone-+91_78549_39308-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](tel:+917854939308) <br>
+[![GitHub](https://img.shields.io/badge/GitHub-anshuman--sahu--dev-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/anshuman-sahu-dev) <br>
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Anshuman_Sahu-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anshuman-sahu-371a6535b/) <br>
+[![Location](https://img.shields.io/badge/Location-Brahmapur,_Odisha,_India-FF5722?style=for-the-badge&logo=googlemaps&logoColor=white)](#) <br>
+
+## 💡 Dev Quote of the Day
+
+<p align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" />
+</p>
+
+<div align="center">
+
+### *"Results-driven developer. Published researcher. Building the web, one component at a time. National athlete."*
+<br/>
+⭐ If you find my work useful, drop a star it means the world! ⭐
