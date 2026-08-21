@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #fbf6ea;
+  --color-paper-2: #f4eddc;
+  --color-ink: #1c1814;
+  --color-orange: #ff6b1a;
+  --color-peach: #ffb25e;
+  --color-yellow: #ffd41f;
+  --color-green: #23a05a;
+  --color-linkedin: #0a66c2;
+  
+  --font-display: "Archivo Black", sans-serif;
+  --font-marker: "Caveat", cursive;
+  --font-body: "Space Grotesk", sans-serif;
+  
+  --shadow-solid: 6px 6px 0 var(--color-ink);
+  --shadow-solid-hover: 10px 12px 0 var(--color-orange);
+}
+
+@layer base {
+  :root {
+    --color-grid: rgba(28, 24, 20, 0.06);
+    --color-hl: var(--color-yellow);
+  }
+  .dark {
+    --color-paper: #1c1814;
+    --color-paper-2: #2a2520;
+    --color-ink: #fbf6ea;
+    --color-grid: rgba(251, 246, 234, 0.06);
+    --color-hl: #cc5500;
+    --shadow-solid: 6px 6px 0 #000000;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    background-image: radial-gradient(
+      var(--color-grid) 1px,
+      transparent 1px
+    );
+    background-size: 5px 5px;
+  }
+  
+  ::selection {
+    background: var(--color-yellow);
+    color: var(--color-ink);
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-paper);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-orange);
+  }
+}
+
+@layer components {
+  .ink-dot {
+    @apply fixed w-[9px] h-[9px] rounded-full pointer-events-none z-[998];
+    animation: ink-fade 0.7s ease forwards;
+  }
+
+  .oss-stamp {
+    @apply fixed font-display uppercase font-black text-green bg-transparent border-[4px] border-green px-4 py-2 transform -rotate-[10deg] z-[999];
+    font-size: 28px;
+    letter-spacing: 0.05em;
+    animation: stamp-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  .wrap {
+    @apply max-w-[1200px] mx-auto px-4 sm:px-6 md:px-7;
+  }
+
+  .tape {
+    @apply absolute w-[110px] h-[30px] bg-yellow/65 shadow-sm border-l border-r border-dashed border-black/10 z-10;
+  }
+  
+  .mk {
+    font-family: var(--font-marker);
+  }
+  
+  .hl {
+    background: linear-gradient(
+      transparent 45%,
+      var(--color-hl) 45%,
+      var(--color-hl) 92%,
+      transparent 92%
+    );
+    font-weight: 700;
+    padding: 0 2px;
+  }
+
+  .btn-big {
+    @apply font-display text-[16px] md:text-[19px] uppercase bg-orange text-white px-6 py-4 md:px-[36px] md:py-[18px] border-3 border-ink shadow-[6px_6px_0_var(--color-ink)] md:shadow-[8px_8px_0_var(--color-ink)] transition-all duration-150 inline-block;
+  }
+  .btn-big:hover {
+    @apply -translate-x-[3px] -translate-y-[3px] -rotate-1 shadow-[10px_10px_0_var(--color-ink)] md:shadow-[12px_12px_0_var(--color-ink)] bg-green text-white;
+  }
+
+  .btn-ghost {
+    @apply font-display text-[14px] md:text-[16px] uppercase bg-transparent text-ink px-6 py-4 md:px-[30px] md:py-[17px] border-3 border-ink transition-all duration-150 inline-block;
+  }
+  .btn-ghost:hover {
+    @apply bg-yellow rotate-1 text-ink;
+  }
+}
+
+@keyframes ink-fade {
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes stamp-pop {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  100% { transform: scale(1) rotate(-8deg); opacity: 1; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-22px) rotate(1deg); }
+}
+
+@keyframes slam {
+  to { transform: translateY(0); }
+}
+
+.animate-slam {
+  transform: translateY(110%);
+  animation: slam 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-slam-delay-1 {
+  transform: translateY(110%);
+  animation: slam 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.12s;
+}
+
+.animate-slam-delay-2 {
+  transform: translateY(110%);
+  animation: slam 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.24s;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(6deg) translateY(0); }
+  50% { transform: rotate(4deg) translateY(-8px); }
+}
+
+@keyframes mar-l {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes mar-r {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
