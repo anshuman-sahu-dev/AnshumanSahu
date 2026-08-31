@@ -57,6 +57,7 @@ export const Hero = () => {
           <div className="flex gap-4 md:gap-[30px] flex-wrap w-full lg:w-auto justify-center lg:justify-start">
             <Button href="#work" variant="primary" className="w-full sm:w-auto text-center">See My Work</Button>
             <Button href="#contact" variant="ghost" className="w-full sm:w-auto text-center">Say Hello ↓</Button>
+            <Button href="https://www.honestify.me/anshumansahu" target="_blank" rel="noopener noreferrer" variant="primary" className="w-full sm:w-auto text-center bg-[#8b5cf6] text-white hover:bg-[#7c3aed] border-ink">🤖 Ask My AI</Button>
           </div>
 
           <div className="w-[180px] sm:w-[220px] lg:w-[280px] rotate-4 z-6 bg-white border border-black/12 p-[8px_8px_10px] md:p-[12px_12px_14px] shadow-[0_12px_26px_rgba(28,24,20,0.2)] transition-transform duration-250 hover:rotate-0 hover:scale-105 self-center lg:self-end">

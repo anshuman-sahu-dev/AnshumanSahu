@@ -50,6 +50,7 @@ export const Contact = () => {
         
         <ScrollRevealWrapper delay={0.2} className="flex justify-center gap-4 flex-wrap mt-8">
           <Button href="mailto:toanshumansahu@gmail.com" variant="primary" className="bg-[#4b3621] text-white border-[#4b3621] hover:bg-[#4b3621] hover:text-white shadow-[6px_6px_0_var(--color-orange)] hover:shadow-[10px_10px_0_var(--color-orange)]">EMAIL ME</Button>
+          <Button href="https://www.honestify.me/anshumansahu" target="_blank" rel="noopener noreferrer" variant="ghost" className="bg-transparent border-ink hover:bg-[#8b5cf6] hover:text-white text-ink transition-all hover:-translate-x-[3px] hover:-translate-y-[3px] hover:-rotate-1 shadow-none">ASK MY AI 🤖</Button>
           <Button href="https://www.linkedin.com/in/anshuman-sahu-371a6535b/" target="_blank" rel="noopener noreferrer" variant="ghost" className="bg-transparent border-ink hover:bg-[#0077b5] hover:text-white text-ink transition-all hover:-translate-x-[3px] hover:-translate-y-[3px] hover:-rotate-1 shadow-none">LINKEDIN ↗</Button>
           <Button href="https://github.com/anshuman-sahu-dev" target="_blank" rel="noopener noreferrer" variant="ghost" className="bg-transparent border-ink hover:bg-[#24292e] hover:text-white text-ink transition-all hover:-translate-x-[3px] hover:-translate-y-[3px] hover:-rotate-1 shadow-none">GITHUB ↗</Button>
         </ScrollRevealWrapper>

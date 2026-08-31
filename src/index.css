@@ -171,3 +171,20 @@
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }
 }
+
+@keyframes hang {
+  0%, 100% { transform: rotate(4deg); }
+  50% { transform: rotate(-4deg); }
+}
+
+@keyframes pop-up {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes zoom-in-out {
+  0%, 100% { transform: scale(1) rotate(2deg); }
+  50% { transform: scale(1.08) rotate(2deg); }
+}
+
+
