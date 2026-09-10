@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { SectionHeading } from '../UI/SectionHeading';
 import { ScrollRevealWrapper } from '../UI/ScrollRevealWrapper';
 import profileImg from '../../assets/Profile/Anshuman Sahu.png';
@@ -16,7 +17,36 @@ export const About = () => {
           <div className="relative bg-white border border-black/12 p-[12px_12px_14px] shadow-[0_12px_26px_rgba(28,24,20,0.2)] rotate-2 transition-transform duration-250 hover:rotate-0 hover:scale-105 mx-auto md:mx-0 w-[250px]">
             <span className="tape -top-[14px] left-1/2 -translate-x-1/2 -rotate-3"></span>
             <img src={profileImg} alt="Anshuman Sahu" className="w-full block" />
-            <div className="font-marker font-bold text-[19px] mt-2 text-center">Anshuman — Odisha, india</div>
+            <a
+              href="https://www.instagram.com/anshuman_sahu_06?stkn=NjhjcGN2cm4zOWF0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center gap-1.5 mt-2 font-marker font-bold text-[16px] text-black dark:text-[#6F4E37] transition-colors duration-200"
+            >
+              {/* Default icon — hidden on hover */}
+              <svg className="group-hover:hidden" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+              {/* Gradient icon — shown on hover */}
+              <svg className="hidden group-hover:block" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <defs>
+                  <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#fcaf45"/>
+                    <stop offset="35%" stopColor="#e1306c"/>
+                    <stop offset="100%" stopColor="#833ab4"/>
+                  </linearGradient>
+                </defs>
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-grad)"/>
+                <circle cx="12" cy="12" r="4" stroke="url(#ig-grad)"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="url(#ig-grad)" stroke="none"/>
+              </svg>
+              {/* Text with gradient on hover */}
+              <span className="group-hover:bg-gradient-to-r group-hover:from-[#fcaf45] group-hover:via-[#e1306c] group-hover:to-[#833ab4] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
+                @anshuman_sahu
+              </span>
+            </a>
           </div>
           
           <div>
