@@ -6,7 +6,7 @@ import profileImg from '../../assets/Profile/Anshuman Sahu.png';
 
 export const About = () => {
   return (
-    <section id="about" className="bg-paper-2 border-y-3 border-ink py-[90px]">
+    <section id="about" className="border-y-3 border-ink py-[90px]">
       <div className="wrap">
         <SectionHeading 
           titleLines={["About", "Me"]} 

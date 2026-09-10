@@ -14,7 +14,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="bg-paper border-t-3 border-ink py-[120px] relative overflow-hidden" id="contact">
+    <section className="border-t-3 border-ink py-[120px] relative overflow-hidden" id="contact">
       <div className="absolute top-[12%] left-1/2 -ml-[220px] w-[440px] h-[440px] bg-[radial-gradient(circle_at_center,rgba(255,107,26,0.15)_0%,transparent_70%)] pointer-events-none -z-1"></div>
       
       <div className="absolute bottom-4 left-2 md:bottom-[90px] md:left-[10%] font-marker font-bold bg-green text-white px-2 py-1 md:px-3 md:py-1.5 rotate-6 border-2 border-white shadow-[3px_3px_0_rgba(28,24,20,0.85)] dark:shadow-[3px_3px_0_#000000] text-[12px] md:text-[15px] z-5 animate-[wobble_5s_ease-in-out_infinite] [animation-delay:2s] hidden sm:block">

@@ -9,7 +9,7 @@ import { About } from './components/Sections/About';
 import { Testimonials } from './components/Sections/Testimonials';
 import { Process } from './components/Sections/Process';
 import { Contact } from './components/Sections/Contact';
-import { AskAI } from './components/Sections/AskAI';
+
 import { Footer } from './components/Footer/Footer';
 import { useInkTrail } from './hooks/useInkTrail';
 import { useClickStamp } from './hooks/useClickStamp';
@@ -75,7 +75,7 @@ function App() {
       <About />
       <Testimonials />
       <Process />
-      <AskAI />
+
       <Contact />
       
       <MarqueeBanner items={marquee4} direction="left" variant="ink" />

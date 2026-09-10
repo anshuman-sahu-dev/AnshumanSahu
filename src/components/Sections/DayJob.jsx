@@ -6,7 +6,7 @@ import { experienceData, educationData, certificationsData } from '../../data/po
 
 export const DayJob = () => {
   return (
-    <section id="dayjob" className="bg-paper-2 border-b-3 border-ink relative py-[90px]">
+    <section id="dayjob" className="border-b-3 border-ink relative py-[90px]">
       <div className="wrap">
         <SectionHeading
           titleLines={["The Real", "Me, On Paper"]}
