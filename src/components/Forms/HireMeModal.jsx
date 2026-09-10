@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Loader2, AlertCircle, ChevronDown, Send } from 'lucide-react';
 import { FormField } from './FormField';
@@ -139,7 +139,7 @@ export const HireMeModal = ({ isOpen, onClose }) => {
             </div>
 
             {/* ── Scrollable form body ── */}
-            <div className="flex-1 overflow-y-auto bg-paper px-6 md:px-8 py-6">
+            <div className="flex-1 overflow-y-auto no-scrollbar bg-paper px-6 md:px-8 py-6">
               <AnimatePresence mode="wait">
                 {status === 'success' ? (
                   <SuccessCard
