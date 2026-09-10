@@ -9,7 +9,7 @@ import { About } from './components/Sections/About';
 import { Testimonials } from './components/Sections/Testimonials';
 import { Process } from './components/Sections/Process';
 import { Contact } from './components/Sections/Contact';
-
+import { HireMeModal } from './components/Forms/HireMeModal';
 import { Footer } from './components/Footer/Footer';
 import { useInkTrail } from './hooks/useInkTrail';
 import { useClickStamp } from './hooks/useClickStamp';
@@ -20,6 +20,19 @@ function App() {
 
   const [showBackTop, setShowBackTop] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isHireMeOpen, setIsHireMeOpen] = useState(false);
+
+  const scrollToContact = () => {
+    const section = document.getElementById('contact');
+    if (section) {
+      window.scrollTo({ top: section.offsetTop - 80, behavior: 'smooth' });
+    }
+  };
+
+  const handleHireMeClick = () => {
+    scrollToContact();
+    setTimeout(() => setIsHireMeOpen(true), 600);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +74,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar onHireMeClick={handleHireMeClick} />
       <Hero />
       <MarqueeBanner items={marquee1} direction="left" variant="ink" />
       <MarqueeBanner items={marquee2} direction="right" variant="orange" />
@@ -118,7 +131,10 @@ function App() {
       >
         <span className="animate-pulse">🤖</span> Meet my AI
       </button>
-      
+
+      {/* ── HIRE ME Modal ── */}
+      <HireMeModal isOpen={isHireMeOpen} onClose={() => setIsHireMeOpen(false)} />
+
       <Footer />
     </>
   );

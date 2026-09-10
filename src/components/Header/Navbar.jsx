@@ -3,7 +3,7 @@ import { Button } from '../UI/Button';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
 
-export const Navbar = () => {
+export const Navbar = ({ onHireMeClick }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -72,9 +72,12 @@ export const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button href="#contact" variant="" className="text-[13px] font-black text-white bg-orange px-[22px] py-[10px] border-ink shadow-[4px_4px_0_var(--color-ink)] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[7px_7px_0_var(--color-ink)] hover:bg-green hover:text-white">
+          <button
+            onClick={onHireMeClick}
+            className="font-display uppercase border-3 transition-all duration-150 inline-flex items-center gap-2 cursor-pointer text-[13px] font-black text-white bg-orange px-[22px] py-[10px] border-ink shadow-[4px_4px_0_var(--color-ink)] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[7px_7px_0_var(--color-ink)] hover:bg-green hover:text-white"
+          >
             Hire Me
-          </Button>
+          </button>
           <button 
             onClick={toggleTheme} 
             className="flex items-center justify-center w-10 h-10 border-2 border-ink bg-paper shadow-[3px_3px_0_var(--color-ink)] hover:-translate-y-[2px] hover:-translate-x-[2px] hover:shadow-[5px_5px_0_var(--color-ink)] transition-all cursor-pointer"
@@ -86,9 +89,12 @@ export const Navbar = () => {
 
         {/* Mobile Toggle & Hire Me */}
         <div className="flex md:hidden items-center gap-3">
-          <Button href="#contact" variant="" className="text-[11px] font-black text-white bg-orange px-3 py-2 border-2 border-ink shadow-[2px_2px_0_var(--color-ink)] hover:bg-green">
+          <button
+            onClick={() => { onHireMeClick(); setIsMobileMenuOpen(false); }}
+            className="font-display uppercase border-3 transition-all duration-150 inline-flex items-center gap-2 cursor-pointer text-[11px] font-black text-white bg-orange px-3 py-2 border-2 border-ink shadow-[2px_2px_0_var(--color-ink)] hover:bg-green"
+          >
             Hire Me
-          </Button>
+          </button>
           <button 
             onClick={toggleTheme} 
             className="flex items-center justify-center w-8 h-8 border-2 border-ink bg-paper shadow-[2px_2px_0_var(--color-ink)] transition-all cursor-pointer"
