@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useAnimationControls } from 'framer-motion';
 import { Loader2, AlertCircle, ChevronDown, Send } from 'lucide-react';
 import { FormField } from './FormField';
@@ -15,6 +15,87 @@ function inputCls(hasError) {
   ].join(' ');
 }
 
+// ── Party Paper Blast Animation ─────────────────────────────────────────────
+function PartyPaperBlast() {
+  const pieces = React.useMemo(() => {
+    const colors = [
+      '#FF6B1A', '#00E599', '#FACC15', '#FF4500',
+      '#EC4899', '#3B82F6', '#A855F7', '#10B981', '#F43F5E'
+    ];
+    const shapes = ['rect', 'circle', 'ribbon', 'star'];
+
+    return Array.from({ length: 65 }, (_, i) => {
+      const angle = (i / 65) * 360 + (Math.random() * 20 - 10);
+      const rad = (angle * Math.PI) / 180;
+      const distance = 100 + Math.random() * 240;
+      const xEnd = Math.cos(rad) * distance;
+      const yEnd = Math.sin(rad) * distance + 50;
+      const shape = shapes[i % shapes.length];
+      const color = colors[i % colors.length];
+      const size = 6 + Math.random() * 10;
+      const duration = 1.8 + Math.random() * 1.2;
+      const delay = Math.random() * 0.4;
+      const rotateEnd = (Math.random() - 0.5) * 720;
+
+      return {
+        id: i,
+        xEnd,
+        yEnd,
+        color,
+        shape,
+        size,
+        duration,
+        delay,
+        rotateEnd,
+      };
+    });
+  }, []);
+
+  return (
+    <div className="absolute inset-0 pointer-events-none z-0 overflow-visible flex items-center justify-center">
+      {pieces.map((p) => (
+        <motion.div
+          key={p.id}
+          initial={{
+            x: 0,
+            y: 0,
+            scale: 0,
+            rotate: 0,
+            opacity: 1,
+          }}
+          animate={{
+            x: p.xEnd,
+            y: [0, p.yEnd * 0.4, p.yEnd],
+            scale: [0, 1.5, 1, 0.4],
+            rotate: p.rotateEnd,
+            rotateX: [0, 360],
+            rotateY: [0, 360],
+            opacity: [0, 1, 1, 0],
+          }}
+          transition={{
+            duration: p.duration,
+            ease: [0.15, 0.85, 0.35, 1],
+            delay: p.delay,
+          }}
+          style={{
+            position: 'absolute',
+            width: p.shape === 'ribbon' ? p.size * 0.4 : p.size,
+            height: p.shape === 'ribbon' ? p.size * 2.4 : p.size,
+            backgroundColor: p.shape === 'star' ? 'transparent' : p.color,
+            borderRadius: p.shape === 'circle' ? '9999px' : p.shape === 'rect' ? '2px' : '1px',
+          }}
+        >
+          {p.shape === 'star' && (
+            <span style={{ color: p.color, fontSize: `${p.size * 1.3}px`, lineHeight: 1 }} className="block font-black">
+              ★
+            </span>
+          )}
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
 // ── Success card ─────────────────────────────────────────────────────────────
 function SuccessCard({ onReset }) {
   return (
@@ -24,16 +105,17 @@ function SuccessCard({ onReset }) {
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.88, opacity: 0 }}
       transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-      className="text-center py-12 px-4"
+      className="text-center py-12 px-4 relative z-10 overflow-visible flex flex-col items-center justify-center"
     >
-      <span className="text-[72px] leading-none block select-none">🎉</span>
-      <h3 className="font-display font-black uppercase text-[clamp(24px,3vw,32px)] mt-5 leading-tight">
+      <PartyPaperBlast />
+      <span className="text-[72px] leading-none block select-none relative z-10">🎉</span>
+      <h3 className="font-display font-black uppercase text-[clamp(24px,3vw,32px)] mt-5 leading-tight relative z-10">
         Message sent!
       </h3>
-      <p className="font-marker text-[20px] text-green mt-2 -rotate-1 inline-block">
+      <p className="font-marker text-[20px] text-green mt-2 -rotate-1 inline-block relative z-10">
         I&apos;ll be in your inbox soon. Promise.
       </p>
-      <div className="mt-8">
+      <div className="mt-8 relative z-10">
         <button
           onClick={onReset}
           className="font-display uppercase border-3 border-ink transition-all duration-150 inline-flex items-center gap-2 cursor-pointer text-[13px] font-black bg-transparent text-ink px-6 py-3 hover:bg-yellow hover:rotate-1 hover:shadow-[4px_4px_0_var(--color-ink)]"
