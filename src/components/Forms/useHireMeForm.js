@@ -1,4 +1,4 @@
-﻿import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 // ── Dynamic copy per inquiry type ───────────────────────────────────────────
 export const INQUIRY_META = {
@@ -91,10 +91,8 @@ const INITIAL = {
 };
 
 // ── Formspree endpoint ───────────────────────────────────────────────────────
-// Sign up at https://formspree.io, create a form, and replace YOUR_FORM_ID
-// Or set VITE_FORMSPREE_ENDPOINT in your .env file
 const ENDPOINT =
-  import.meta.env.VITE_FORMSPREE_ENDPOINT ?? 'https://formspree.io/f/YOUR_FORM_ID';
+  import.meta.env.VITE_FORMSPREE_ENDPOINT ?? 'https://formspree.io/f/meaorpyw';
 
 // ── Hook ─────────────────────────────────────────────────────────────────────
 export function useHireMeForm() {
