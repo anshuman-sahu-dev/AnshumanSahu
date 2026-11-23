@@ -14,7 +14,7 @@ Based on the analysis of the existing `index.html`, `style.css`, and `script.js`
 - **Navigation:** Sticky navbar with logo, smooth-scrolling links (Work, Day Job, Skills, About), a "Hire Me" button, a small Light/Dark mode toggle emoji/icon immediately after the button, and a top scroll progress bar.
 - **Hero Section:** Dynamic typography ("CODE IN. BUILD OUT."), SVG highlights, rotating ID chips, short bio, CTA buttons, and a tilted profile photo.
 - **Marquees (Bands):** Auto-scrolling text bands (e.g., "WEB DESIGN ★ FULL STACK DEVELOPMENT...") moving both left and right.
-- **Work / Projects:** Grid of 4 key projects (Alumni Network, Odisha Express, Swad-e-Dil, FINITECH EdTech) featuring hover 3D tilt effects, tech stack tags, and external links.
+- **Work / Projects:** Grid of 4 key projects (Alumni Network, Odisha Express, Project Management System, FINITECH EdTech) featuring hover 3D tilt effects, tech stack tags, and external links.
 - **Day Job / Experience:** Timeline of internships, university education, certifications, and high school education displayed as interactive cards.
 - **Skills:** A comprehensive "Toolbox" categorized into Languages, Backend, Frontend, Databases, Testing, Cloud/DevOps, AI Tools, IDEs, and Core CS with hover pop effects.
 - **About Me:** Profile picture, biography, and a quick statistics row (internships, certifications, research papers, reply time).

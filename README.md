@@ -42,7 +42,7 @@ This portfolio serves as my digital presence for recruiters, hiring managers, po
 
 - **NIST University Alumni Network:** A full-featured platform connecting alumni, students, and the university. *(PHP, Laravel, MySQL, JavaScript)*
 - **Odisha Express Metro Website:** Real-time metro route information connecting 150+ stations. *(React, Node.js, Tailwind CSS)*
-- **Swad-e-Dil:** A modern, responsive web platform for a homemade cloud kitchen. *(React, Node.js, Tailwind CSS)*
+- **Project Management System:** A full-stack, role-based project management system designed to streamline team collaboration, task allocation, and project tracking. *(React.js, Node.js, Express.js, MongoDB, Vercel)*
 - **FINITECH EdTech:** A comprehensive e-learning platform empowering students through digital curricula. *(React, Node.js, Tailwind CSS)*
 
 ## ⚙️ Installation and Local Setup

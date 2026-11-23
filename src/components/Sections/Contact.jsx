@@ -21,7 +21,7 @@ export const Contact = () => {
         your site could look this good
       </div>
       
-      <a 
+      <a
         href="/Resume/Anshuman Sahu Resume.pdf" 
         download="Anshuman Sahu Resume.pdf"
         className="absolute bottom-4 right-2 md:bottom-[90px] md:right-[10%] font-marker font-bold bg-orange text-white px-2 py-1 md:px-3 md:py-1.5 rotate-6 border-2 border-ink shadow-[3px_3px_0_rgba(28,24,20,0.85)] text-[12px] md:text-[15px] z-5 animate-[wobble_5s_ease-in-out_infinite] [animation-delay:2.5s] flex items-center gap-1.5 cursor-pointer no-underline flex-row-reverse hidden sm:flex"
