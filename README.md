@@ -1,113 +1,265 @@
-# Anshuman Sahu - Personal Portfolio
+# Anshuman Sahu — Personal Portfolio & Full-Stack Web Application
 
-A modern, scalable, and beautifully designed personal portfolio website showcasing my work, experience, and skills. Built with **React** and **Tailwind CSS**, it features seamless animations, micro-interactions, and a carefully crafted dual-theme (Light/Dark) aesthetic.
+A production-grade, full-stack personal developer portfolio showcasing software engineering projects, technical capabilities, career journey, research publications, and interactive experiences.
 
-## 🚀 Portfolio Overview
+Built with a decoupled **React 19 + Vite Frontend** and a robust, secure **Node.js + Express + MongoDB Atlas Backend**.
 
-This portfolio serves as my digital presence for recruiters, hiring managers, potential clients, and fellow developers. It leverages a maintainable React architecture while showcasing high-quality design, modern typography, and interactive flair. 
+---
 
-## ✨ Key Features
+## 🏗️ Monorepo Architecture
 
-- **Responsive & Mobile-First Design:** Fluid layout that adapts perfectly from desktop to mobile screens.
-- **Light & Dark Mode:** A seamless theme toggle that remembers user preference while maintaining visual consistency and contrast.
-- **Micro-Interactions & Animations:** 
-  - Mouse-tracking Ink Trail and Click Stamps.
-  - 3D perspective tilt effects on project cards.
-  - Smooth scroll reveals and page-load animations powered by Framer Motion.
-- **Dynamic Navigation:** Sticky navbar with scrollspy highlighting and a scroll progress indicator.
-- **Data-Driven Architecture:** All content (projects, experience, skills) is dynamically rendered from structured JSON/JS data arrays for easy updates.
-- **Quick Contact:** Interactive "copy to clipboard" email function and resume download functionality.
+```text
+Anshuman Sahu/
+│
+├── Frontend/                       # Client-side SPA built with React 19 & Vite 8
+│   ├── public/                     # Static assets (project screenshots, icons, resume PDF)
+│   ├── src/                        # Components, layouts, hooks, and design system
+│   │   ├── assets/                 # Profile avatars and brand graphics
+│   │   ├── components/             # Reusable UI components & section layouts
+│   │   │   ├── cards/              # Project, Job, and Testimonial cards
+│   │   │   ├── Forms/              # Neo-brutalist contact modal & hire me forms
+│   │   │   ├── Header/             # Navigation header
+│   │   │   ├── Hero/               # Hero banner and introduction
+│   │   │   ├── Sections/           # About, Skills, Work, DayJob, Testimonials, Contact
+│   │   │   └── UI/                 # Core design primitives (Button, SectionHeading, etc.)
+│   │   ├── data/                   # Structured portfolio projects and career data
+│   │   ├── hooks/                  # Custom hooks (useTheme, useInkTrail, useClickStamp)
+│   │   ├── App.jsx                 # Main application component
+│   │   └── main.jsx                # Application DOM root
+│   ├── .env                        # Frontend environment variables
+│   ├── .gitignore                  # Frontend ignore rules
+│   ├── index.html                  # HTML5 entry point
+│   ├── package.json                # Frontend dependencies and npm scripts
+│   └── vite.config.js              # Vite bundler configuration
+│
+├── Backend/                        # Production REST API Service
+│   ├── src/                        # Application source code
+│   │   ├── config/                 # Environment, MongoDB connection, & Nodemailer setup
+│   │   ├── controllers/            # Request handlers (Inquiry, Health)
+│   │   ├── middlewares/            # Error handling, rate limiting, and Joi validation
+│   │   ├── models/                 # Mongoose schemas (Inquiry, Project)
+│   │   ├── routes/                 # Express API routes
+│   │   ├── services/               # Core business logic (DB persistence, email dispatch)
+│   │   ├── utils/                  # Standardized API response, custom error, & logger
+│   │   └── validators/             # Joi input validation schemas
+│   ├── tests/                      # Jest & Supertest integration and unit test suite
+│   ├── .env.example                # Template for environment configuration
+│   ├── .gitignore                  # Backend ignore rules (excludes .env and PRD.md)
+│   ├── nodemon.json                # Nodemon watcher configuration (watches src, .env)
+│   ├── package.json                # Backend dependencies and scripts
+│   └── server.js                   # Backend HTTP server entry point & graceful shutdown
+│
+├── .git/                           # Git repository history
+├── .gitignore                      # Monorepo-level gitignore
+└── README.md                       # Monorepo master documentation
+```
 
-## 💻 Tech Stack
+---
 
-- **Frontend Framework:** React.js (Bootstrapped with Vite)
-- **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion
+## 💻 Tech Stack Overview
+
+### Frontend
+- **Framework:** React 19
+- **Build Tool:** Vite 8
+- **Styling:** Tailwind CSS v4 (`@tailwindcss/vite`) with Neo-Brutalist design tokens
+- **Animations:** Framer Motion, canvas-based particle bursts, ink trails
 - **Icons:** Lucide React
-- **Utilities:** `clsx`, `tailwind-merge`
-- **Deployment:** Vercel
+- **Analytics:** Vercel Analytics
 
-## 📂 Main Sections
+### Backend
+- **Runtime:** Node.js (v20+ LTS)
+- **Framework:** Express.js 4
+- **Database:** MongoDB Atlas with Mongoose ODM (strict schema, indexing)
+- **Email Delivery:** Nodemailer with Gmail SMTP
+- **Security & Reliability:**
+  - Helmet for secure HTTP response headers
+  - Strict CORS origin whitelisting (`CLIENT_URL`, custom domains)
+  - IP-based rate limiting via `express-rate-limit`
+  - NoSQL injection sanitization via `express-mongo-sanitize`
+  - Anti-spam Honeypot trap (`_gotcha`)
+  - Dynamic SHA-256 duplicate submission window prevention
+- **Testing:** Jest & Supertest
 
-1. **Hero:** Dynamic typography, short bio, CTA buttons, and a stylized profile section.
-2. **Work (Projects):** Grid showcasing significant projects with interactive 3D hover effects.
-3. **Day Job (Experience):** An interactive timeline of internships, education, and certifications.
-4. **Skills:** Categorized technical toolbox highlighting languages, frontend, backend, AI tools, and more.
-5. **About Me:** Biography, profile statistics, and academic highlights.
-6. **Testimonials:** Insights and quotes from mentors and team leads.
-7. **How I Build:** My 3-step development process: Understand ➔ Design + Develop ➔ Test & Ship.
-8. **Contact:** Quick contact links, resume download, and a one-click email copy button.
+---
 
-## 🛠️ Projects Showcased
+## ⚡ Key Full-Stack Features
 
-- **NIST University Alumni Network:** A full-featured platform connecting alumni, students, and the university. *(PHP, Laravel, MySQL, JavaScript)*
-- **Odisha Express Metro Website:** Real-time metro route information connecting 150+ stations. *(React, Node.js, Tailwind CSS)*
-- **Project Management System:** A full-stack, role-based project management system designed to streamline team collaboration, task allocation, and project tracking. *(React.js, Node.js, Express.js, MongoDB, Vercel)*
-- **FINITECH EdTech:** A comprehensive e-learning platform empowering students through digital curricula. *(React, Node.js, Tailwind CSS)*
+### 1. Dual Automated Contact Form Workflow
+- **Zero Data Loss Guarantee:** All incoming visitor inquiries are validated and saved into MongoDB Atlas first.
+- **Admin Alert Email:** Dispatches an immediate notification to Anshuman with the dynamic subject:
+  ```text
+  Request from <Organization Name> for "<Type of Request>"
+  ```
+  *(e.g., `Request from Open Source Initiative for "Collaboration"` or `Request from Google for "Job Opportunity"`)*.
+- **Automated Visitor Thank-You Email:** Sends a confirmation email to the visitor featuring:
+  - Estimated 24-hour turnaround response pledge.
+  - Direct social media links with embedded icons for **LinkedIn**, **Instagram**, and **Email**.
+- **Resilient Fallback:** If email delivery fails for any reason, the inquiry remains safely stored in MongoDB and returns HTTP 502 with error details so no message is ever lost.
 
-## ⚙️ Installation and Local Setup
+### 2. System Health & Diagnostics
+- Dedicated health check endpoint (`GET /api/v1/health`) providing uptime metrics, memory usage, environment status, and real-time MongoDB connectivity verification.
 
-1. **Clone the repository:**
+---
+
+## 🚀 Quick Start Guide
+
+### Prerequisites
+- Node.js `v20.x` or higher
+- npm or pnpm
+- A MongoDB Atlas connection string
+- A Gmail account with an App Password (for SMTP)
+
+---
+
+### Step 1: Clone & Configure
+
+```bash
+git clone https://github.com/anshuman-sahu-dev/portfolio.git
+cd "Anshuman Sahu"
+```
+
+---
+
+### Step 2: Setup and Run the Backend
+
+1. Navigate to the backend directory:
    ```bash
-   git clone <your-repo-link>
-   cd anshuman-portfolio
+   cd Backend
    ```
 
-2. **Install dependencies:**
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-3. **Run the development server:**
+3. Configure environment variables:
+   Copy `.env.example` to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+   Fill in your actual credentials:
+   ```env
+   NODE_ENV=development
+   PORT=5000
+   CLIENT_URL=http://localhost:5173
+   MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/portfolio?retryWrites=true&w=majority
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_SECURE=false
+   SMTP_USER=your_email@gmail.com
+   SMTP_PASS=your_16_character_app_password
+   SMTP_FROM="Your Name <your_email@gmail.com>"
+   NOTIFICATION_RECEIVER_EMAIL=your_admin_email@gmail.com
+   ```
+
+4. Start the backend development server:
    ```bash
    npm run dev
    ```
-   *The application will start at `http://localhost:5173/` by default.*
+   *The server will start on `http://localhost:5000`.*
 
-4. **Build for production:**
+5. Run automated tests:
    ```bash
-   npm run build
+   npm test
    ```
-   *You can preview the production build locally with `npm run preview`.*
 
-## 🏗️ Project Structure
+---
 
-```text
-src/
- ├── assets/          # Static assets (images, fonts, icons)
- ├── components/      # Reusable React components (Hero, Footer, Cards, Sections)
- ├── data/            # JSON/JS data arrays (portfolioData.js) driving the content
- ├── hooks/           # Custom React hooks (e.g., useInkTrail, useClickStamp)
- ├── App.jsx          # Main application layout & component assembly
- ├── main.jsx         # React application entry point
- └── index.css        # Global CSS and Tailwind directives
-```
+### Step 3: Setup and Run the Frontend
 
-## 🌐 Deployment
+1. Open a new terminal and navigate to the frontend directory:
+   ```bash
+   cd Frontend
+   ```
 
-This project is optimized for deployment on **Vercel**.
-Since it is built with Vite, Vercel automatically detects the framework and configures the build settings out of the box.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-**Live Demo:** [anshumansahu.vercel.app](https://anshumansahu.vercel.app)
+3. Configure environment variables in `Frontend/.env`:
+   ```env
+   VITE_API_BASE_URL=http://localhost:5000/api/v1
+   ```
 
-## 📬 Contact
+4. Start the frontend development server:
+   ```bash
+   npm run dev
+   ```
+   *The client will start on `http://localhost:5173`.*
 
-For any queries, feedback, or collaboration:
+---
 
-[![Email](https://img.shields.io/badge/Email-toanshumansahu@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:toanshumansahu@gmail.com) <br>
-[![Phone](https://img.shields.io/badge/Phone-+91_78549_39308-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](tel:+917854939308) <br>
-[![GitHub](https://img.shields.io/badge/GitHub-anshuman--sahu--dev-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/anshuman-sahu-dev) <br>
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Anshuman_Sahu-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anshuman-sahu-371a6535b/) <br>
-[![Location](https://img.shields.io/badge/Location-Brahmapur,_Odisha,_India-FF5722?style=for-the-badge&logo=googlemaps&logoColor=white)](#) <br>
+## 📡 API Reference
 
-## 💡 Dev Quote of the Day
+### 1. Health Check
+- **URL:** `/api/v1/health`
+- **Method:** `GET`
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "Portfolio API Gateway is healthy",
+    "data": {
+      "status": "UP",
+      "uptime": 142.3,
+      "environment": "development",
+      "database": {
+        "status": "connected",
+        "readyState": 1
+      }
+    }
+  }
+  ```
 
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" />
-</p>
+---
 
-<div align="center">
+### 2. Submit Inquiry
+- **URL:** `/api/v1/inquiries`
+- **Method:** `POST`
+- **Headers:** `Content-Type: application/json`
+- **Payload Schema:**
+  ```json
+  {
+    "inquiryType": "job",
+    "name": "Alex Carter",
+    "email": "alex.carter@company.com",
+    "company": "Tech Innovators Inc",
+    "phone": "+1 555-019-2834",
+    "website": "https://techinnovators.io",
+    "description": "Hi Anshuman! We are impressed by your portfolio and would like to discuss a Full-Stack Engineer role.",
+    "_gotcha": ""
+  }
+  ```
+- **Responses:**
+  - `201 Created`: Inquiry stored in database and confirmation email dispatched.
+  - `400 Bad Request`: Field validation error (e.g., missing name or invalid email).
+  - `409 Conflict`: Duplicate submission detected within 60 seconds.
+  - `429 Too Many Requests`: Exceeded rate limit (max 5 submissions per 15 minutes per IP).
+  - `502 Bad Gateway`: Stored safely in MongoDB, but email dispatch failed.
 
-### *"Results-driven developer. Published researcher. Building the web, one component at a time. National athlete."*
-<br/>
-⭐ If you find my work useful, drop a star it means the world! ⭐
+---
+
+## 🛠️ Featured Portfolio Projects
+
+1. **NIST University Alumni Network:** Official university alumni networking platform with mentorship, career opportunities, and collaborative directories. *(Laravel, PHP, MySQL, JavaScript)*
+2. **Odisha Express Metro Website:** Real-time metro transit web application connecting 150+ stations with routes, timings, and fares. *(React.js, Tailwind CSS, Node.js)*
+3. **Project Management System:** Full-stack, role-based project management platform with authentication, task allocation, and team collaboration tracking. *(React.js, Node.js, Express.js, MongoDB, Vercel)*
+4. **FINITECH EdTech:** Comprehensive digital learning platform offering structured cohorts, project building, and live mentorship. *(React.js, Tailwind CSS, Node.js)*
+
+---
+
+## 📬 Contact & Connect
+
+- **Direct Inquiries:** Submit via the [Live Portfolio Contact Form](https://anshumansahu.vercel.app)
+- **LinkedIn:** [linkedin.com/in/anshuman-sahu-371a6535b](https://www.linkedin.com/in/anshuman-sahu-371a6535b/)
+- **Instagram:** [@anshuman_sahu_06](https://www.instagram.com/anshuman_sahu_06)
+- **Live Portfolio:** [https://anshumansahu.vercel.app](https://anshumansahu.vercel.app)
+- **Location:** Brahmapur, Odisha, India
+
+---
+
+## 📄 License & Attribution
+
+Designed and engineered with care by **Anshuman Sahu**. All rights reserved © 2026.
