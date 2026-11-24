@@ -33,6 +33,13 @@ app.use(
       if (!origin || allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
+      // Allow Vercel preview and production deployments
+      if (
+        /^https:\/\/([a-zA-Z0-9-_.]+\.)?anshumansahu(\.vercel\.app)?$/.test(origin) ||
+        /^https:\/\/[a-zA-Z0-9-_.]*anshuman[a-zA-Z0-9-_.]*\.vercel\.app$/.test(origin)
+      ) {
+        return callback(null, true);
+      }
       return callback(new ApiError(403, `CORS policy: origin ${origin} is not allowed`));
     },
     methods: ['GET', 'POST', 'OPTIONS'],
@@ -55,6 +62,19 @@ if (config.nodeEnv !== 'test') {
 
 // 6. Mount Master API Router
 app.use('/api/v1', apiRouter);
+
+// Root information route
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Anshuman Sahu Portfolio Backend API Gateway is active',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/v1/health',
+      inquiries: '/api/v1/inquiries (POST)',
+    },
+  });
+});
 
 // 7. Handle 404 for undefined routes
 app.use((req, res, next) => {

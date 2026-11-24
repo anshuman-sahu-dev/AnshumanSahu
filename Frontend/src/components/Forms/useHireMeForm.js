@@ -90,9 +90,12 @@ const INITIAL = {
   _gotcha: '',
 };
 
-// ── Formspree endpoint ───────────────────────────────────────────────────────
-const ENDPOINT =
-  import.meta.env.VITE_FORMSPREE_ENDPOINT ?? 'https://formspree.io/f/meaorpyw';
+// ── Backend API endpoint ──────────────────────────────────────────────────────
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.DEV ? 'http://localhost:5000' : '');
+
+const ENDPOINT = `${API_BASE_URL ? API_BASE_URL.replace(/\/+$/, '') : ''}/api/v1/inquiries`;
 
 // ── Hook ─────────────────────────────────────────────────────────────────────
 export function useHireMeForm() {
@@ -153,13 +156,14 @@ export function useHireMeForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          'Inquiry Type':      values.inquiryType,
-          'Name':              values.name,
-          'Email':             values.email,
-          'Company / Org':     values.company,
-          'Phone':             values.phone    || '(not provided)',
-          'Website/LinkedIn':  values.website  || '(not provided)',
-          'Description':       values.description,
+          inquiryType: values.inquiryType,
+          name: values.name,
+          email: values.email,
+          company: values.company,
+          phone: values.phone && values.phone.trim() ? values.phone.trim() : undefined,
+          website: values.website && values.website.trim() ? values.website.trim() : undefined,
+          description: values.description,
+          _gotcha: values._gotcha || '',
         }),
         signal: controller.signal,
       });

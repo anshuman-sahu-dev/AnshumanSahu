@@ -190,6 +190,51 @@ cd "Anshuman Sahu"
 
 ---
 
+## ☁️ Deploying to Vercel (Production Monorepo)
+
+Deploy the repository on Vercel as two connected services (Frontend and Backend) connected to your GitHub repository (`anshuman-sahu-dev/AnshumanSahu`):
+
+### 1. Deploy the Backend Service First
+1. Log into your [Vercel Dashboard](https://vercel.com/dashboard) and click **Add New...** &rarr; **Project**.
+2. Select your repository `AnshumanSahu` and click **Import**.
+3. In **Project Name**, enter: `anshuman-portfolio-backend` (or a name of your choice).
+4. In **Root Directory**, click **Edit** and select **`Backend`**.
+5. Keep **Framework Preset** as **Other**.
+6. Expand **Environment Variables** and add the following:
+   - `NODE_ENV`: `production`
+   - `MONGODB_URI`: `<your_mongodb_atlas_connection_string>`
+   - `SMTP_HOST`: `smtp.gmail.com`
+   - `SMTP_PORT`: `587`
+   - `SMTP_SECURE`: `false`
+   - `SMTP_USER`: `<your_gmail_address>`
+   - `SMTP_PASS`: `<your_gmail_app_password>`
+   - `SMTP_FROM`: `"Anshuman Sahu <your_gmail_address>"`
+   - `NOTIFICATION_RECEIVER_EMAIL`: `<your_email_for_inquiry_alerts>`
+   - `CLIENT_URL`: `https://anshumansahu.vercel.app` (your frontend production domain)
+7. Click **Deploy**.
+8. Once deployed, copy your backend URL (e.g. `https://anshuman-portfolio-backend.vercel.app`).
+9. Verify by visiting `https://<backend-url>/api/v1/health` in your browser. It should return `status: "UP"`, `database: "connected"`.
+
+### 2. Deploy the Frontend Application
+1. In your [Vercel Dashboard](https://vercel.com/dashboard), click **Add New...** &rarr; **Project**.
+2. Select the same repository `AnshumanSahu` and click **Import**.
+3. In **Project Name**, enter: `anshumansahu` (or your preferred frontend name).
+4. In **Root Directory**, click **Edit** and select **`Frontend`**.
+5. Vercel will automatically detect the **Vite** preset (`Build Command: npm run build`, `Output Directory: dist`).
+6. Expand **Environment Variables** and add:
+   - `VITE_API_BASE_URL`: `https://<your-backend-project>.vercel.app` (paste your deployed backend URL from Step 1).
+7. Click **Deploy**.
+8. Once deployed, visit your frontend URL (e.g. `https://anshumansahu.vercel.app`).
+
+### 3. MongoDB Atlas Network Access (Critical)
+Because Vercel serverless functions run across dynamic IP ranges:
+- Log into [MongoDB Atlas](https://cloud.mongodb.com/).
+- Navigate to **Security** &rarr; **Network Access**.
+- Click **Add IP Address** &rarr; click **Allow Access from Anywhere** (`0.0.0.0/0`).
+- Confirm. This enables your Vercel backend serverless function to connect securely to your database cluster.
+
+---
+
 ## 📡 API Reference
 
 ### 1. Health Check
