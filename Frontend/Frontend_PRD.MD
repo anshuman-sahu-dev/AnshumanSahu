@@ -59,7 +59,7 @@ Based on the analysis of the existing `index.html`, `style.css`, and `script.js`
   - **Form Fields:** Inquiry Type (dropdown: Job, Freelance, Collaboration, Other), Contact Person Name, Work Email, Company/Organization (dynamic label based on inquiry type), Phone (optional), Website/LinkedIn (optional, auto-prefixes `https://`), and a Job/Project Description textarea (max 1,000 chars with live counter).
   - **Validation:** Client-side real-time validation on blur; all required fields validated on submit. Errors are shown inline beneath each field with ARIA attributes (`aria-invalid`, `aria-describedby`, `role="alert"`).
   - **Bot Protection:** Hidden honeypot field (`_gotcha`) silently discards bot submissions.
-  - **Submission:** Form data is POSTed via `fetch` to a **Formspree** endpoint (configured via `VITE_FORMSPREE_ENDPOINT` env variable). Handles loading, success, error, and rate-limited (HTTP 429) states with distinct UI feedback.
+  - **Submission:** Form data is POSTed via `fetch` to the Portfolio Backend REST API endpoint (`/api/v1/inquiries`, configured via `VITE_API_BASE_URL` env variable). Handles loading, success, error, and rate-limited (HTTP 429) states with distinct UI feedback.
   - **Success State:** Animated success card with celebratory emoji, confirmation message, and options to send another message or close.
   - **Modal UX:** Backdrop blur overlay, Spring-based entry/exit animations (Framer Motion), body scroll lock while open, auto-focus on first field, and Escape-key dismissal.
   - **Inline Form UX:** Card pulse and orange shadow animation triggered when the Navbar "Hire Me" button is clicked (`hireMeSignal` prop); shake animation on failed validation attempt.
@@ -95,7 +95,7 @@ src/
  │    │    ├── HireMeModal.jsx   (Modal trigger from Navbar — AnimatePresence + scroll lock)
  │    │    ├── HireMeForm.jsx    (Inline form in Contact section — pulse/shake animations)
  │    │    ├── FormField.jsx     (Reusable accessible label + error + hint wrapper)
- │    │    └── useHireMeForm.js  (Shared form state, validation, Formspree submission hook)
+ │    │    └── useHireMeForm.js  (Shared form state, validation, REST API backend submission hook)
  │    ├── Footer/
  │    │    └── Footer.jsx
  │    ├── UI/
@@ -154,7 +154,7 @@ src/
 - **Lighthouse Score:** Achieve 90+ in Performance, Accessibility, Best Practices, and SEO.
 - **Code Quality:** Zero hardcoded data blocks in JSX (all driven by data files), modular components, and no vanilla DOM manipulation (`document.querySelector`) outside of React Refs.
 - **Interactivity:** All micro-interactions (ink, stamps, tilts) function smoothly without frame-rate drops.
-- **Contact Form:** The Hire Me form (both modal and inline variants) submits successfully via Formspree, handles all error states gracefully, and passes accessibility audits (ARIA labels, keyboard navigability, focus management).
+- **Contact Form:** The Hire Me form (both modal and inline variants) submits successfully via the Portfolio Backend REST API, handles all error states gracefully, and passes accessibility audits (ARIA labels, keyboard navigability, focus management).
 
 ---
 
@@ -163,4 +163,4 @@ src/
 | Version | Date | Change |
 |---------|------|--------|
 | v1.0 | 2026-09-10 | Initial PRD — React + Tailwind migration from vanilla HTML/CSS/JS |
-| v1.1 | 2026-09-10 | Added Hire Me Contact System: `HireMeModal`, `HireMeForm`, `FormField`, `useHireMeForm` hook with Formspree integration, dual-delivery form (modal + inline), client-side validation, honeypot bot protection, animated success/error states, and Navbar trigger update |
+| v1.1 | 2026-09-10 | Added Hire Me Contact System: `HireMeModal`, `HireMeForm`, `FormField`, `useHireMeForm` hook with Portfolio Backend REST API integration, dual-delivery form (modal + inline), client-side validation, honeypot bot protection, animated success/error states, and Navbar trigger update |

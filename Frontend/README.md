@@ -99,11 +99,8 @@ npm run lint
 The frontend reads variables prefixed with `VITE_` from `.env`:
 
 ```bash
-# Inquiry Form Endpoint (Defaults to Formspree or custom backend API)
-VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/meaorpyw
-
-# Custom Backend API Endpoint (For future full-stack integration)
-# VITE_API_BASE_URL=http://localhost:5000/api/v1
+# Custom Backend REST API Base URL
+VITE_API_BASE_URL=http://localhost:5000
 ```
 
 ---
