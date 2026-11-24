@@ -12,7 +12,7 @@ export const projectsData = [
   {
     id: 2,
     title: "Odisha Express Metro Website",
-    type: "React Project",
+    type: "ReactJs Project",
     description:
       "Odisha Express Metro is a dynamic web application that delivers real-time metro information including routes, stations, timings, fares, and accessibility options. The platform connects <strong>150+ stations across multiple cities,</strong>  making it easier for commuters to discover routes, plan journeys, and navigate the metro network efficiently.",
     image: "/Project/Odisha Express.png",
